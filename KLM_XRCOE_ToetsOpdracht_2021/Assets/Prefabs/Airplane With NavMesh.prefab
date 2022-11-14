@@ -95,9 +95,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a650c72772e83794c8ed4e6be27379c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planeSO: {fileID: 0}
   agent: {fileID: 0}
   speed: 1
   flyRadius: 25
+  light: {fileID: 8122501965405086248}
 --- !u!64 &5779938656079824517
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -155,7 +157,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

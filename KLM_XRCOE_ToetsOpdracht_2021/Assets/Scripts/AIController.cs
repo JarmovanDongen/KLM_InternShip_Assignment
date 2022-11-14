@@ -5,9 +5,15 @@ using UnityEngine.AI;
 
 public class AIController : MonoBehaviour
 {
+    public PlaneScriptableObject planeSO;
     public NavMeshAgent agent;
     [Range(0, 100)] public float speed;
     [Range(1, 500)] public float flyRadius;
+
+    private bool isParking = false;
+
+    private Transform hangar;
+    public GameObject light;
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +29,15 @@ public class AIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (agent != null && agent.remainingDistance <= agent.stoppingDistance)
+        //Fly around in random direction
+        if (agent != null && agent.remainingDistance <= agent.stoppingDistance && !isParking)
         {
             agent.SetDestination(RandomNavMeshLocation());
         }
+
     }
 
+    //Calculate where to fly
     public Vector3 RandomNavMeshLocation()
     {
         Vector3 finalPosition = Vector3.zero;
@@ -40,6 +49,25 @@ public class AIController : MonoBehaviour
         }
         Debug.Log(finalPosition);
         return finalPosition;
+    }
+
+    //Set the destination for agent to go to hangar
+    public void GoToHangar()
+    {
+        agent.SetDestination(hangar.position);
+        isParking = true;
+    }
+
+    //Set correct hangar
+    public void SetHangar(Transform hangar)
+    {
+        this.hangar = hangar;
+    }
+
+    //Turn Lights on
+    public void TurnLightsOn()
+    {
+        light.SetActive(true);
     }
 
 
