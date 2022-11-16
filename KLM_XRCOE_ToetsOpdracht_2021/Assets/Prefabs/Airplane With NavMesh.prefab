@@ -98,9 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planeSO: {fileID: 0}
   agent: {fileID: 0}
-  speed: 1
+  speed: 3.5
   flyRadius: 25
   aircraftText: {fileID: 0}
+  parkedText: {fileID: 0}
   light: {fileID: 8122501965405086248}
 --- !u!64 &5779938656079824517
 MeshCollider:

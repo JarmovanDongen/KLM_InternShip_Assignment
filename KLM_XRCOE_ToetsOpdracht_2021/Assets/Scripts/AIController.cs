@@ -13,6 +13,8 @@ public class AIController : MonoBehaviour
 
     private bool isParking = false;
     public TextMeshPro aircraftText;
+    public TextMeshPro parkedText;
+
 
     private Transform hangar;
     public GameObject light;
@@ -49,7 +51,6 @@ public class AIController : MonoBehaviour
         {
             finalPosition = hit.position;
         }
-        Debug.Log(finalPosition);
         return finalPosition;
     }
 
@@ -57,7 +58,9 @@ public class AIController : MonoBehaviour
     public void GoToHangar()
     {
         agent.SetDestination(hangar.position);
+        Invoke("ParkingText", 7f);
         isParking = true;
+       
     }
 
     //Set correct hangar
@@ -76,6 +79,11 @@ public class AIController : MonoBehaviour
     public void SetText(int aircraftNum)
     {
         aircraftText.text = aircraftNum.ToString();
+    }
+
+    public void ParkingText()
+    {
+        parkedText.text = "Parked!";
     }
 
 
