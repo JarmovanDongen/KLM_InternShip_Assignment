@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,6 +12,7 @@ public class AIController : MonoBehaviour
     [Range(1, 500)] public float flyRadius;
 
     private bool isParking = false;
+    public TextMeshPro aircraftText;
 
     private Transform hangar;
     public GameObject light;
@@ -68,6 +70,12 @@ public class AIController : MonoBehaviour
     public void TurnLightsOn()
     {
         light.SetActive(true);
+    }
+
+
+    public void SetText(int aircraftNum)
+    {
+        aircraftText.text = aircraftNum.ToString();
     }
 
 

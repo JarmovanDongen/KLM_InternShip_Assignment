@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class KLMGameManager : MonoBehaviour
 {
-    public List<GameObject> hangars = new List<GameObject>();
+    public List<Hangar> hangars = new List<Hangar>();
     public List<AIController> aircrafts = new List<AIController>();
-
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +15,8 @@ public class KLMGameManager : MonoBehaviour
             hangars[i].name += (i + 1).ToString();
             aircrafts[i].name += (i + 1).ToString();
             aircrafts[i].SetHangar(hangars[i].transform);
+            hangars[i].SetText(i + 1);
+            aircrafts[i].SetText(i + 1);
         }
         
     }
